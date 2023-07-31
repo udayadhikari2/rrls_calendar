@@ -29,9 +29,8 @@ export default function App() {
   return (
     <NavigationContainer >
       <Stack.Navigator>
-          <Stack.Screen name="Bottom Navigation" component={BottomNavigationTabs} options={{ headerShown: false }} />
+        <Stack.Screen name="Bottom Navigation" component={BottomNavigationTabs} options={{ headerShown: false }} />
       </Stack.Navigator>
-
     </NavigationContainer>
   );
 }

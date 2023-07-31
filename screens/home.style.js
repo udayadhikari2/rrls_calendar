@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 import { COLORS, SIZES, SHADOWS } from "../constants/index";
-import { height, width } from "../constants/theme";
 
 const styles = StyleSheet.create({
     homeContainer: {
@@ -14,35 +13,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         // padding: 5,
     },
-    locationWrapper: {
-        alignItems: "center",
-        width: 100,
-        padding: 5,
-    },
-    locationName: {
-        fontFamily: "extraBold",
-        fontSize: SIZES.medium,
-        color: COLORS.primary,
-    },
     appTitle: {
         width: 100,
         justifyContent: "center",
         alignItems: "center",
         padding: 5,
-    },
-    textStyle: {
-        fontFamily: "extraBold",
-        fontSize: SIZES.large,
-    },
-    profile: {
-        padding: 1,
-        alignItems: "center",
-        width: 100,
-    },
-    profileTitle: {
-        fontSize: SIZES.xsMedium,
-        fontFamily: "semiBold",
-        color: COLORS.tertiary,
     },
     line: {
         borderBottomWidth: 1,
