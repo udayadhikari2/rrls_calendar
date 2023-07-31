@@ -41,18 +41,21 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"center",
         marginVertical:10,
-        padding:5,
+        padding:3,
+        backgroundColor:COLORS.lightWhite,
+        margin:0,
+        borderRadius:10,
     },
     prevButton:{
         paddingHorizontal:30,
     },
     monthTitle:{
-        paddingHorizontal:30,
+        paddingHorizontal:35,
         paddingVertical:2,
-        backgroundColor:COLORS.gray1,
+        backgroundColor:COLORS.lightGreen,
         borderWidth:1,
-        borderRadius:20,
-        borderColor:COLORS.lightWhite,
+        borderRadius:10,
+        borderColor:COLORS.gray1,
         justifyContent:"center",
     },
     monthText:{
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
         fontSize:SIZES.large,
     },
     nextButton:{
-        paddingHorizontal:30,
+        paddingHorizontal:35,
     }
 })
 export default styles

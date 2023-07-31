@@ -20,13 +20,13 @@ const FindingMonths = () => {
       </View>
       <View style={styles.nextPrevContainer}>
         <TouchableOpacity style={styles.prevButton}>
-          <Ionicons name="arrow-back-circle" size={35} color={COLORS.red} />
+          <Ionicons name="arrow-back-circle" size={30} color={COLORS.red} />
         </TouchableOpacity >
         <View style={styles.monthTitle}>
           <Text style={styles.monthText}>Baishak</Text>
         </View>
         <TouchableOpacity style={styles.nextButton}>
-          <Ionicons name="arrow-forward-circle" size={35} color={COLORS.red} />
+          <Ionicons name="arrow-forward-circle" size={30} color={COLORS.red} />
         </TouchableOpacity>
       </View>
     </View>

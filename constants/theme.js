@@ -20,14 +20,15 @@ const COLORS = {
     gray1: "#83829A",
     gray2: "#C1C0C8",
 
-    dimWhite: "#F3F4F8",
+    dimWhite: "#F5F5F5",
     white: "#FFFFFF",
     black: "#000000",
     red: "#e81e4d",
     green: " #00C135",
+    lightGreen: "#9AE0AD",
     yellow: "#FFFB00",
     blue: "#003BFF",
-    lightWhite: "#FAFAFC",
+    lightWhite: "#E0E1E4",
 };
 
 const SHADOWS = {

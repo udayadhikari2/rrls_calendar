@@ -13,11 +13,14 @@ const ScreenOptions = {
     tabBarShowLabel: true,
     tabBarStyle: {
         position:'absolute',
+        padding:5,
         height: 50,
         bottom: 0,
         elevation: 0,
         right: 0,
-        left: 0
+        left: 0,
+        backgroundColor:COLORS.lightWhite,
+        borderTopWidth: 2,
     }
 }
 
@@ -62,8 +65,8 @@ const BottomNavigationTabs = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <Ionicons
-                                name={focused ? "cart" : "cart-outline"}
-                                size={26}
+                                name={focused ? "information-circle" : "information-circle-outline"}
+                                size={30}
                                 color={focused ? COLORS.primary : COLORS.gray1}
                             />
                         )

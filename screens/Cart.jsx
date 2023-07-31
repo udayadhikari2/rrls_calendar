@@ -4,7 +4,7 @@ const Cart = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>This is Cart Page</Text>
+        <Text>This is Information Page</Text>
       </View>
     </SafeAreaView>
   )
