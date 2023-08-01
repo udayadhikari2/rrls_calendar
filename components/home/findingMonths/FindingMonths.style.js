@@ -3,7 +3,6 @@ import { SIZES, COLORS } from "../../../constants/index";
 
 const styles = StyleSheet.create({
     monthsContainer: {
-        flex: 1,
         marginHorizontal:15,
     },
     monthsHeading: {
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         marginVertical:10,
         padding:3,
-        backgroundColor:COLORS.lightWhite,
+        // backgroundColor:COLORS.lightWhite,
         margin:0,
         borderRadius:10,
     },

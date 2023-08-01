@@ -3,17 +3,11 @@ import { COLORS, SIZES, SHADOWS } from "../../../constants/index";
 
 const styles = StyleSheet.create({
 
-    locationWrapper: {
-        alignItems: "center",
-        width: 100,
-        padding: 5,
+    imageWrapper: {
+      width:"100%",
+      height:200,
     },
-    locationName: {
-        fontFamily: "extraBold",
-        fontSize: SIZES.small,
-        color: COLORS.primary,
-    },
-
+    
 })
 
 export default styles

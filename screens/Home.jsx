@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from "./home.style";
-import { Profile, Location, Logo, FindingMonths } from '../components/home';
+import { Profile, Location, Logo, FindingMonths, ImageSlider } from '../components/home';
 function Home() {
     return (
         <SafeAreaView style={styles.homeContainer}>
@@ -13,7 +13,8 @@ function Home() {
                 <Profile />
             </View>
             <View style={styles.line} />
-            <FindingMonths/>
+            <FindingMonths />
+            <ImageSlider />
         </SafeAreaView>
     )
 }
