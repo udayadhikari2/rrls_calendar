@@ -2,7 +2,8 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import styles from "./FindingMonths.style";
 import { COLORS, SIZES } from "../../../constants/index"
 import { Ionicons } from "@expo/vector-icons"
-const FindingMonths = () => {
+import { useState } from 'react';
+const FindingMonths = ({ next, prev }) => {
 
   const SearchData = () => {
 
@@ -19,13 +20,13 @@ const FindingMonths = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.nextPrevContainer}>
-        <TouchableOpacity style={styles.prevButton}>
+        <TouchableOpacity style={styles.prevButton} onPress={prev}>
           <Ionicons name="arrow-back-circle" size={30} color={COLORS.red} />
         </TouchableOpacity >
         <View style={styles.monthTitle}>
           <Text style={styles.monthText}>Baishak</Text>
         </View>
-        <TouchableOpacity style={styles.nextButton}>
+        <TouchableOpacity style={styles.nextButton} onPress={next}>
           <Ionicons name="arrow-forward-circle" size={30} color={COLORS.red} />
         </TouchableOpacity>
       </View>

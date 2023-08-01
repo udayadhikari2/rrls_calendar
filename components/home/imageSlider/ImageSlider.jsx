@@ -20,16 +20,10 @@ const ImageSlider = () => {
         require("../../../assets/images/chaitra.jpg"),
     ]
     const [monthIndex, setMonthIndex] = useState(0);
-    const [nextPrev,setNextPrev]=useState(monthIndex);
-    const next=()=>{
-        if(nextPrev==true){
-            nextPrev++;
-            
-        }
-    }
+  
     const assignIndex = (index) => {
         setMonthIndex(index);
-        alert(index);
+
     }
 
     return (
@@ -47,7 +41,6 @@ const ImageSlider = () => {
                     onCurrentImagePressed={(index) => assignIndex(index)}
                     paginationBoxVerticalPadding={0}
                     resizeMode="stretch"
-                    // firstItem={index}
                 />
             </TouchableOpacity>
             <Events />
