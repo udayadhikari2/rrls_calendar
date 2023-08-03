@@ -1,31 +1,36 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, FlatList, Image, ScrollView } from 'react-native'
 import styles from "./imageSlider.style"
-import { SliderBox } from 'react-native-image-slider-box'
-import { COLORS } from '../../../constants'
 import Events from '../findingMonths/Events'
-import { calenderMonths } from "../../../data/calenderMonths"
-const ImageSlider = ({ data, sliderRef }) => {
+import { CalenderMonths } from '../../../data/calenderMonths'
+const ImageSlider = ({ sliderRef }) => {
 
-    const imageUrls = calenderMonths.map((item) => item.calenderImage);
-
+    // const [currentIndex, setCurrentIndex] = useState(0);
+    // const itemWidth = Dimensions.get('window').width - 32;
+    // const handelScroll = (event) => {
+    //     const contentOffsetY = event.nativeEvent.contentOffset.y;
+    //     const index = Math.round(contentOffsetY / itemWidth);
+    //     setCurrentIndex(index);
+    // }
     return (
         <>
-            <TouchableOpacity style={styles.imageWrapper}>
-                <SliderBox images={imageUrls}
+            <View style={styles.imageWrapper}>
+                <FlatList
                     ref={sliderRef}
-                    dotColor={COLORS.red}
-                    ImageComponentStyle={{
-                        borderRadius: 10,
-                        width: "100%",
-                        height: "100%",
-
-                    }}
-                    // onCurrentImagePressed={handleSnapToItem}
-                    paginationBoxVerticalPadding={0}
-                    resizeMode="stretch"
-                    firstItem={data}
+                    data={CalenderMonths}
+                    renderItem={({ item }) => {
+                        return (
+                            <View style={styles.calenderStyle}>
+                                <Image source={item.calenderImage} style={styles.calenderImage} />
+                            </View>
+                        )
+                    }
+                    }
+                    pagingEnabled
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={item => item.id}
                 />
-            </TouchableOpacity>
+            </View>
             <Events />
         </>
 

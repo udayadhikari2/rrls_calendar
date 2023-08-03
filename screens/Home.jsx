@@ -1,41 +1,58 @@
 import { View, Text } from 'react-native'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from "./home.style";
 import { Profile, Location, Logo, FindingMonths, ImageSlider } from '../components/home';
-import { calenderMonths } from '../data/calenderMonths';
+import { CalenderMonths } from '../data/calenderMonths';
 function Home(props) {
     const sliderRef = useRef(null);
-    const handleSnapToItem = (index) => {
-        sliderRef.current?.scrollToIndex({ index, animated: true });
-    };
+    // const upButtonHandler = () => {
+    //     //OnCLick of Up button we scrolled the list to top
+    //     sliderRef.current.scrollToOffset({ offset: 0, animated: true });
+    // };
 
-    const imageId = calenderMonths.map((item) => item.id);
-    const imageName = calenderMonths.map((item) => item.month);
+    // const downButtonHandler = () => {
+    //     //OnCLick of down button we scrolled the list to bottom
+    //     sliderRef.scrollToEnd({ animated: true });
+    // };
 
     const [data, setData] = useState(0);
+
     const [monthName, setMonthName] = useState("Baishak");
 
-
     const prev = () => {
-        handleSnapToItem();
-        if (data >= 0 || data == imageId) {
-            alert(data)
-            setData(data - 1)
+        // alert(calenderMonths.length)
+        const prevIndex = data - 1;
+        if (prevIndex >= 0) {
+            setData(prevIndex);
+            sliderRef.current?.scrollToIndex({ index: data, animated: true });
         }
         else {
-            alert("You are in the starting month : Baishak")
-
+            alert("The First Month is Baishak");
         }
     }
     const next = () => {
-        handleSnapToItem();
-        if (data < 12) {
-            setData(data + 1)
+        const nextIndex = data + 1;  // 0+1 = 1 
+        do {
+            setData(nextIndex);
+            sliderRef.current?.scrollToIndex({ index: data, animated: true });
         }
-        else {
-            alert("You are in the Ending month : Chaitra")
-        }
+        while (nextIndex <= CalenderMonths.length);
+        // alert("The Last Month is Chaitra");
+
+
+
+        // if (data == 0) {
+        //     setData(nextIndex);
+        //     sliderRef.current?.scrollToIndex({ index: nextIndex, animated: true });
+        // }
+        // else if (nextIndex <= CalenderMonths.length) {
+        //     setData(nextIndex);
+        //     sliderRef.current?.scrollToIndex({ index: data, animated: true });
+        // }
+        // else {
+        //     alert("The Last Month is Chaitra");
+        // }
     }
 
     return (
@@ -49,7 +66,7 @@ function Home(props) {
             </View>
             <View style={styles.line} />
             <FindingMonths next={next} prev={prev} {...props} monthName={monthName} />
-            <ImageSlider data={data} imageRef={sliderRef} />
+            <ImageSlider imageRef={sliderRef} sliderRef={sliderRef} />
         </SafeAreaView>
     )
 }

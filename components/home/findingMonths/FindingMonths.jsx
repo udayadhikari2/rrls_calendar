@@ -2,9 +2,8 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import styles from "./FindingMonths.style";
 import { COLORS, SIZES } from "../../../constants/index"
 import { Ionicons } from "@expo/vector-icons"
-import { calenderMonths } from '../../../data/calenderMonths';
-const FindingMonths = ({ next, prev,monthName}) => {
-  
+const FindingMonths = ({ next, prev, monthName }) => {
+
   const SearchData = () => {
     //searching function
   }
