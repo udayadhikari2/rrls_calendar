@@ -9,14 +9,17 @@ function Home(props) {
     const eventRef = useRef(null);
 
     const [data, setData] = useState(0);
-    const [buttonVisible, setButtonVisible] = useState(true)
+    const [buttonVisibleNext, setButtonVisibleNext] = useState(true);
+    const [buttonVisiblePrev, setButtonVisiblePrev] = useState(false)
 
     const prev = () => {
         if (data == 0) {
-            alert("Base Months")
-            setButtonVisible(false)
+            setButtonVisibleNext(true)
+            setButtonVisiblePrev(false)
+            alert("Permission Denied !!!")
         }
         else {
+            setButtonVisibleNext(true)
             const prevIndex = data - 1;
             setData(prevIndex);
             sliderRef.current?.scrollToIndex({ index: prevIndex, animated: true });
@@ -24,6 +27,7 @@ function Home(props) {
         }
     }
     const next = () => {
+        setButtonVisiblePrev(true)
         const nextIndex = data + 1;
         if (data == 0) {
             setData(nextIndex);
@@ -32,12 +36,15 @@ function Home(props) {
         }
         else if (nextIndex <= CalenderMonths.length - 1) {
             setData(nextIndex);
-            setButtonVisible(false)
             sliderRef.current?.scrollToIndex({ index: nextIndex, animated: true });
             eventRef.current?.scrollToIndex({ index: nextIndex, animated: true });
         }
+        else if (data == CalenderMonths.length - 1) {
+            setButtonVisibleNext(false)
+            alert("Permission Denied !!!")
+        }
         else {
-            alert("The Last Month is Chaitra");
+            alert("disabled");
         }
     }
 
@@ -51,8 +58,20 @@ function Home(props) {
                 <Profile />
             </View>
             <View style={styles.line} />
-            <FindingMonths next={next} prev={prev} {...props} monthIndex={data} setButtonVisible={buttonVisible} />
-            <ImageSlider imageRef={sliderRef} sliderRef={sliderRef} eventRef={eventRef} />
+            <FindingMonths
+                {...props}
+                next={next} prev={prev}
+                monthIndex={data}
+                setButtonVisiblePrev={buttonVisiblePrev}
+                setButtonVisibleNext={buttonVisibleNext}
+                monthRef={sliderRef}
+
+            />
+            <ImageSlider
+                imageRef={sliderRef}
+                sliderRef={sliderRef}
+                eventRef={eventRef}
+            />
         </SafeAreaView>
     )
 }
