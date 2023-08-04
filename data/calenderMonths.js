@@ -43,42 +43,82 @@ export const CalenderMonths = [
         id: 5,
         month: "Bhadra",
         calenderImage: require("../assets/images/bhadra.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
 
     },
     {
         id: 6,
         month: "Ashoj",
         calenderImage: require("../assets/images/ashoj.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
 
     },
     {
         id: 7,
         month: "Kartik",
         calenderImage: require("../assets/images/kartik.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
     },
     {
         id: 8,
         month: "Mangsir",
         calenderImage: require("../assets/images/mangsir.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
     },
     {
         id: 9,
         month: "Poush",
         calenderImage: require("../assets/images/poush.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
     },
     {
         id: 10,
         month: "Magh",
         calenderImage: require("../assets/images/magh.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
     },
     {
         id: 11,
         month: "Falgun",
         calenderImage: require("../assets/images/falgun.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
     },
     {
         id: 12,
         month: "Chaitra",
         calenderImage: require("../assets/images/chaitra.jpg"),
+        event1: {
+            eventName: "Nepali Typing",
+            date: "30",
+            description: "9 to 12",
+        },
     },
 ]

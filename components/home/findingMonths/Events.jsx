@@ -1,80 +1,74 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
 import { View, Text } from 'react-native'
-import { COLORS } from '../../../constants'
+import { COLORS, SIZES } from '../../../constants'
 import { FlatList } from 'react-native-gesture-handler'
 import { CalenderMonths } from '../../../data/calenderMonths'
 import { Ionicons } from "@expo/vector-icons"
 import { TouchableOpacity } from 'react-native'
-const Events = () => {
+const { width } = Dimensions.get('window');
+const Events = ({ eventRef }) => {
     return (
-        <View>
-            <View style={styles.eventContainer}>
+        <View style={styles.eventContainer} >
+            <View >
                 <Text style={styles.eventTitle}>Events</Text>
             </View>
-            <FlatList data={CalenderMonths} renderItem={({ item }) => {
-                console.log(item)
+            <FlatList ref={eventRef} data={CalenderMonths} horizontal pagingEnabled showsHorizontalScrollIndicator={false} renderItem={({ item }) => {
                 return (
                     <View style={styles.cardContainer}>
+                        <Text style={styles.eventMonth}>{item.month} :</Text>
                         <View style={styles.tileContainer}>
-                            <Text style={styles.eventName}>Nepali Typing on 24th</Text>
-                            <TouchableOpacity><Ionicons style={styles.fav} name="bookmarks-sharp" color={COLORS.lightGreen} size={30} /></TouchableOpacity>
-
-
+                            <Text style={styles.eventName}>{item.event1.eventName} on {item.event1.date}</Text>
+                            <TouchableOpacity>
+                                <Ionicons style={styles.fav} name="bookmarks-sharp" color={COLORS.lightGreen} size={30} />
+                            </TouchableOpacity>
                         </View>
-
-                        <Text style={styles.eventDescription}>for class 12</Text>
+                        <Text style={styles.eventDescription}>{item.event1.description}</Text>
                     </View>
                 )
             }} />
         </View>
     )
 }
-
 const styles = StyleSheet.create({
-    eventContainer: {
-        marginTop: 10,
-        marginHorizontal: 15,
-    },
     eventTitle: {
         fontFamily: "extraBold",
-        fontSize: 20,
+        fontSize: SIZES.large + 5,
         color: COLORS.red,
+        marginHorizontal: 15,
+        marginVertical: 8,
     },
     cardContainer: {
+        width: width,
         backgroundColor: COLORS.secondary,
         borderRadius: 8,
-        padding: 16,
-        marginVertical: 8,
-        marginHorizontal: 8,
+        padding: 10,
+        marginVertical: 5,
         elevation: 3,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 4,
     },
+    eventMonth: {
+        color: COLORS.gray1,
+        fontSize: SIZES.large,
+        fontFamily: 'extraBold',
+    },
     eventName: {
-        fontSize: 20,
+        fontSize: SIZES.medium + 2,
         fontWeight: 'bold',
         marginBottom: 4,
+        paddingHorizontal: 15,
         color: COLORS.tertiary,
-    },
-    eventTime: {
-        fontSize: 16,
-        marginBottom: 4,
-        fontFamily: "italic",
     },
     eventDescription: {
         fontSize: 16,
+        paddingHorizontal: 15,
     },
     tileContainer: {
         flexDirection: "row",
-        justifyContent: "space-around",
+        justifyContent: "flex-start",
         alignItems: "center",
-    },
-    fav: {
-        margin: 10,
-        padding: 10,
-
     }
 })
 

@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, FlatList, Image, ScrollView } from 'react
 import styles from "./imageSlider.style"
 import Events from '../findingMonths/Events'
 import { CalenderMonths } from '../../../data/calenderMonths'
-const ImageSlider = ({ sliderRef }) => {
+const ImageSlider = ({ sliderRef, eventRef }) => {
 
     // const [currentIndex, setCurrentIndex] = useState(0);
     // const itemWidth = Dimensions.get('window').width - 32;
@@ -31,7 +31,7 @@ const ImageSlider = ({ sliderRef }) => {
                     keyExtractor={item => item.id}
                 />
             </View>
-            <Events />
+            <Events eventRef={eventRef} />
         </>
 
     )

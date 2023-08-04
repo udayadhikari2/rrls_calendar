@@ -6,53 +6,39 @@ import { Profile, Location, Logo, FindingMonths, ImageSlider } from '../componen
 import { CalenderMonths } from '../data/calenderMonths';
 function Home(props) {
     const sliderRef = useRef(null);
-    // const upButtonHandler = () => {
-    //     //OnCLick of Up button we scrolled the list to top
-    //     sliderRef.current.scrollToOffset({ offset: 0, animated: true });
-    // };
-
-    // const downButtonHandler = () => {
-    //     //OnCLick of down button we scrolled the list to bottom
-    //     sliderRef.scrollToEnd({ animated: true });
-    // };
+    const eventRef = useRef(null);
 
     const [data, setData] = useState(0);
-
-    const [monthName, setMonthName] = useState("Baishak");
+    const [buttonVisible, setButtonVisible] = useState(true)
 
     const prev = () => {
-        // alert(calenderMonths.length)
-        const prevIndex = data - 1;
-        if (prevIndex >= 0) {
-            setData(prevIndex);
-            sliderRef.current?.scrollToIndex({ index: data, animated: true });
+        if (data == 0) {
+            alert("Base Months")
+            setButtonVisible(false)
         }
         else {
-            alert("The First Month is Baishak");
+            const prevIndex = data - 1;
+            setData(prevIndex);
+            sliderRef.current?.scrollToIndex({ index: prevIndex, animated: true });
+            eventRef.current?.scrollToIndex({ index: prevIndex, animated: true });
         }
     }
     const next = () => {
-        const nextIndex = data + 1;  // 0+1 = 1 
-        do {
+        const nextIndex = data + 1;
+        if (data == 0) {
             setData(nextIndex);
-            sliderRef.current?.scrollToIndex({ index: data, animated: true });
+            sliderRef.current?.scrollToIndex({ index: nextIndex, animated: true });
+            eventRef.current?.scrollToIndex({ index: nextIndex, animated: true });
         }
-        while (nextIndex <= CalenderMonths.length);
-        // alert("The Last Month is Chaitra");
-
-
-
-        // if (data == 0) {
-        //     setData(nextIndex);
-        //     sliderRef.current?.scrollToIndex({ index: nextIndex, animated: true });
-        // }
-        // else if (nextIndex <= CalenderMonths.length) {
-        //     setData(nextIndex);
-        //     sliderRef.current?.scrollToIndex({ index: data, animated: true });
-        // }
-        // else {
-        //     alert("The Last Month is Chaitra");
-        // }
+        else if (nextIndex <= CalenderMonths.length - 1) {
+            setData(nextIndex);
+            setButtonVisible(false)
+            sliderRef.current?.scrollToIndex({ index: nextIndex, animated: true });
+            eventRef.current?.scrollToIndex({ index: nextIndex, animated: true });
+        }
+        else {
+            alert("The Last Month is Chaitra");
+        }
     }
 
     return (
@@ -65,8 +51,8 @@ function Home(props) {
                 <Profile />
             </View>
             <View style={styles.line} />
-            <FindingMonths next={next} prev={prev} {...props} monthName={monthName} />
-            <ImageSlider imageRef={sliderRef} sliderRef={sliderRef} />
+            <FindingMonths next={next} prev={prev} {...props} monthIndex={data} setButtonVisible={buttonVisible} />
+            <ImageSlider imageRef={sliderRef} sliderRef={sliderRef} eventRef={eventRef} />
         </SafeAreaView>
     )
 }
