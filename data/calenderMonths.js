@@ -22,6 +22,12 @@ export const CalenderMonths = [
                 date: "24",
                 description: "For class 9 to 10",
             },
+            {
+                eventId: 4,
+                eventName: "Hand Writting Compition",
+                date: "24",
+                description: "For class 9 to 10",
+            },
 
         ],
     },

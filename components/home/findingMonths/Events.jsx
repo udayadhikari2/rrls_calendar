@@ -15,7 +15,7 @@ const Events = ({ eventRef }) => {
                         <View style={styles.tileContainer}>
                             <Text style={styles.eventName}>{eventItem.eventId} . {eventItem.eventName} on {eventItem.date}</Text>
                             <TouchableOpacity>
-                                <Ionicons style={styles.fav} name="bookmarks-sharp" color={COLORS.lightGreen} size={30} />
+                                <Ionicons style={styles.fav} name="bookmarks-sharp" color={COLORS.red} size={25} />
                             </TouchableOpacity>
                         </View>
                         <Text style={styles.eventDescription}>{eventItem.description}</Text>
@@ -27,7 +27,9 @@ const Events = ({ eventRef }) => {
     }
     return (
         <View style={styles.eventContainer} >
-            <Text style={styles.eventTitle}>Events</Text>
+
+            <Text style={styles.eventTitle}>Events on {CalenderMonths.month}</Text>
+
             <FlatList
                 ref={eventRef}
                 data={CalenderMonths}
