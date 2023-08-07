@@ -7,7 +7,7 @@ const Profile = () => {
             <View style={styles.profile}>
                 <Ionicons name="person-circle-outline" size={20} color="red" />
                 <Text style={styles.profileTitle}>
-                    Uday Adhikari
+                    This is the profile section.
                 </Text>
             </View>
         </TouchableOpacity>

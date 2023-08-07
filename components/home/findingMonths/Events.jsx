@@ -15,7 +15,7 @@ const Events = ({ eventRef }) => {
                         <View style={styles.tileContainer}>
                             <Text style={styles.eventName}>{eventItem.eventId} . {eventItem.eventName} on {eventItem.date}</Text>
                             <TouchableOpacity>
-                                <Ionicons style={styles.fav} name="bookmarks-sharp" color={COLORS.red} size={25} />
+                                <Ionicons style={styles.fav} name="bookmarks-sharp" color={COLORS.red} size={26} />
                             </TouchableOpacity>
                         </View>
                         <Text style={styles.eventDescription}>{eventItem.description}</Text>
@@ -36,7 +36,8 @@ const Events = ({ eventRef }) => {
                 horizontal
                 pagingEnabled
                 showsHorizontalScrollIndicator={false}
-                renderItem={renderItem} />
+                renderItem={renderItem}
+               />
         </View>
     )
 }

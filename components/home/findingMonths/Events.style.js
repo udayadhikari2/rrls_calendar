@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         // borderWidth:2,
-        height:145,
+        height:165,
         width: width,
         backgroundColor: COLORS.lightGreen,
         opacity:0.8,

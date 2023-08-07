@@ -51,11 +51,11 @@ function Home(props) {
     return (
         <SafeAreaView style={styles.homeContainer}>
             <View style={styles.homeContainerWrapper}>
-                <Location />
+                {/* <Location /> */}
                 <View style={styles.appTitle}>
                     <Logo />
                 </View>
-                <Profile />
+                {/* <Profile /> */}
             </View>
             <View style={styles.line} />
             <FindingMonths

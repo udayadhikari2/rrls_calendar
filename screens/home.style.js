@@ -13,16 +13,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         // padding: 5,
     },
-    appTitle: {
-        width: 100,
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 5,
-    },
     line: {
         borderBottomWidth: 1,
         borderColor: COLORS.dimWhite,
-        marginVertical: 5,
+        marginTop: 35,
         marginHorizontal: 20,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },
